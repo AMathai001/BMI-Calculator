@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI Calculator</title>
+	<link rel="icon" href="C:\Users\2023\Downloads\BMI.jpg" type="image/x-icon">
+	<style type="text/css">
+		body{
+			background-color: #f5f5f5;
+			font-family: Arial;
+			font-size: 16px;
+			line-height: 1.6em;
+			margin: 0;
+			padding: 0;
+		}
+		h1{
+			color: #333;
+			font-size: 36px;
+			text-align: center;
+		}
+		form{
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			margin: auto;
+			padding: 20px;
+			width: 400px;
+		}
+		label{
+			display: block;
+			font-size: 20px;
+			margin-bottom: 5px;
+		}
+		input[type="number"]{
+			border-radius: 3px;
+			border: none;
+			box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+			font-size: 16px;
+			height: 40px;
+			margin-bottom: 20px;
+			padding-left: 10px;
+			width: 100%;
+		}
+		input[type="submit"]{
+			background-color: #333;
+			border-radius: 3px;
+			border:none;
+			color:#fff;
+			cursor:pointer;
+			font-size:20px;
+			height:40px;
+			margin-top:-10px;
+		}
+		input[type="submit"]:hover{
+			background-color:#444
+		}
+	</style>
+</head>
+<body>
+<h1>BMI Calculator</h1>
+<form>
+<label>Weight (kg)</label>
+<input type="number" name="weight" id="weight" required>
+<label>Height (cm)</label>
+<input type="number" name="height" id="height" required>
+<input type="submit" value="Calculate">
+</form>
+
+<script type="text/javascript">
+	var form = document.querySelector('form');
+	form.addEventListener('submit', function(e){
+	e.preventDefault();
+	var weight = document.querySelector('#weight').value,
+	height = document.querySelector('#height').value/100,
+	result = weight / (height * height),
+	output = document.createElement('p');
+	output.innerHTML = 'Your BMI is ' + result.toFixed(2);
+	document.body.appendChild(output);
+});
+</script>
+</body>
+<style>
+table {
+  border-collapse: collapse;
+  width: 30%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
+<table>
+  <tr>
+    <th>BMI</th>
+    <th>Weight Status</th>
+  </tr>
+  <tr>
+    <td>Below 18.5</td>
+    <td>Underweight</td>
+  </tr>
+  <tr>
+    <td>18.5 - 24.9</td>
+    <td>Normal</td>
+  </tr>
+  <tr>
+    <td>25 - 29.9</td>
+    <td>Overweight</td>
+  </tr>
+  <tr>
+    <td>30 and above</td>
+    <td>Obese</td>
+  </tr>
+</table>
+</html>
